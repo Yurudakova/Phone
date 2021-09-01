@@ -7,6 +7,8 @@
   line-height: 50px;
   background-color: #FFFFFF;
   text-align: center;
+  user-select: none;
+  cursor: pointer;
 }
 .title {
   font-family:Verdana, Geneva, Tahoma, sans-serif;

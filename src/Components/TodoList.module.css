@@ -10,4 +10,5 @@
   align-items: center;
   border-radius: 20px;
   background-image: url('../back.jpg');
+  position: relative;
 }

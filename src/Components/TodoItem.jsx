@@ -1,22 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import styles from './TodoItem.module.css'
 
 
-const TodoItem = ({title}) => {
-
-  const [isPressed, setIsPressed]=useState(false);
- 
-
-
-  useEffect (()=> {
-    console.log('я родился ', title)
-  }, [isPressed]) 
-
-
+const TodoItem = ({title, onClick}) => {
   return (
-    <div className={styles.item} onClick={()=>setIsPressed(!isPressed)}> 
+    <div className={styles.item} onClick={onClick}>
       <div>
-        <span className={styles.title}>{isPressed && 'bla'|| title}</span>
+        <span className={styles.title}>{title}</span>
       </div>
     </div>
   )
