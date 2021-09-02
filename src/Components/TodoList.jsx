@@ -2,29 +2,29 @@ import React, {useState} from 'react';
 import TodoItem from './TodoItem';
 import styles from './TodoList.module.css';
 import ModalItem from './ModalItem';
+import Folder from './Folder';
 
 
 
-const TodoList = ({todos}) => {
-  const [modalTitle, setModalTitle]=useState('');
+const TodoList = ({todos, mini, rootElement}) => {
 
-  function onClick(title) {
-    setModalTitle(title);
+  const [openIndex, setOpenIndex] = useState(-1);
+
+  function onFolderClick(i) {
+    setOpenIndex(i === openIndex ? -1 : i)
   }
 
-  function onModalClick() {
-    setModalTitle('');
-  }
-
-  return <div className ={styles.wrapper} >
-    {todos.map(e => {
+  return todos.map((e, i) => {
       if (e.children)
-        return <TodoItem title={e.title + ' папка'} onClick={() => onClick(e.title)}/>
+        return <Folder
+            todos={e.children}
+            modal={openIndex === i}
+            rootElement={rootElement}
+            onClick={() => onFolderClick(i)} />
       else
-        return <TodoItem title={e.title} onClick={() => onClick(e.title)}/>
-    })}
-    {modalTitle && <ModalItem title={modalTitle} onClick={onModalClick} />}
-    </div>;
+        return <TodoItem title={e.title} mini={mini} />
+    })
+
 };
 
 export default TodoList;
