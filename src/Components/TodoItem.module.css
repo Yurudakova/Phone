@@ -1,0 +1,57 @@
+
+.item {
+  border: 1px solid rgb(250, 178, 178);
+  border-radius: 7px;
+  width: 60px;
+  height: 60px;
+  background-color: rgb(253, 253, 253);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  margin: 2.5px;
+  transition: all linear 0.25s;
+ 
+
+}
+.title {
+  font-family:'Arial', 'Helvetica', 'sans-serif';
+  font-size: 35px;
+  transition: all linear 0.25s;
+}
+
+.mini {
+
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+  border-radius: 3px;
+}
+
+.mini .title {
+  font-size: 6px;
+}
+
+.shake {
+  animation: shake 0.5s;
+  animation-iteration-count:infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  25% {
+    transform: rotate(-1.25deg) translate(-0.2px, -0.2px);
+  }
+  50% { 
+    transform: rotate(2deg) translate(0.2px, -0.2px);
+  }
+  75% {
+    transform: rotate(-1.25deg) translate(0.2px, 0.2px);
+  }
+  100% {
+    transform: rotate(1deg) translate(-0.2px, 0.2px);
+  }
+}
