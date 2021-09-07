@@ -3,7 +3,7 @@ import TodoList from './TodoList';
 import styles from './Folder.module.css';
 import cn from 'classnames';
 
-const Folder = ({todos, modal, onClick, rootElement}) => {
+const Folder = ({todos, modal, onClick, rootElement, title}) => {
 
   const ref = useRef();
 
@@ -21,18 +21,18 @@ const Folder = ({todos, modal, onClick, rootElement}) => {
   }, [rootElement, ref]);
 
   return (
-      <div className={styles.wrapper}>
-        {modal && <div className={styles.blur}/>}
-        <div
-            ref={ref}
-            className={cn(styles.folder, {[styles.modal]: modal}, [styles.shake])}
-            onClick={onClick}
-            style={modal ? {marginLeft: ox + 'px', marginTop: oy + 'px'} : {}}
-        >
-          <TodoList todos={todos} mini={!modal}/>
-        </div>
+    <div className={styles.wrapper}>
+      {modal && <div className={styles.blur}/>}
+      <div
+        ref={ref}
+        className={cn(styles.folder, {[styles.modal]: modal}, [styles.shake])}
+        onClick={onClick}
+        style={modal ? {marginLeft: ox + 'px', marginTop: oy + 'px'} : {}}
+      >
+        <TodoList currentList={todos} mini={!modal}/>
+        {modal && <div className={styles.anotation}>{title}</div>}
       </div>
-  );
-};
-
+    </div>
+);
+  }
 export default Folder;

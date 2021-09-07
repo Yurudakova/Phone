@@ -10,3 +10,13 @@
   position: relative;
   align-content: flex-start;
 }
+
+.dotsList{
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 96%;
+  /* height: 4%; */
+  bottom:  6px;
+  position: absolute;
+  } 
